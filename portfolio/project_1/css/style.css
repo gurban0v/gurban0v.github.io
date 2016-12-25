@@ -1,0 +1,369 @@
+/****************** НАСТРОЙКИ **********************/
+
+/*ипорт шрифта из google fonts*/
+@import url('https://fonts.googleapis.com/css?family=Acme|Sintony:400,700');
+
+/*очищение обтекания*/
+.clearfix:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+/****************** НАСТРОЙКИ СВЕРХУ *******************/
+
+
+/*----------------------Общие правила-----------------------*/
+
+* {
+	text-decoration: none; /*убрать нижнее подчеркивание у ссылки*/
+}
+
+body {
+	background-color: #e3e3e3; /*задаем цвет фона*/
+	color: #868686; /*цвет текста для всех*/
+	font-family: 'Sintony', Helvetica, Arial sans-serif; /*если не будет Sintony, то выберет Hel и т.д.*/
+	font-size: 14px; /*общий для всех размер шрифта*/
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Acme', Helvetica, Arial sans-serif;
+}
+
+.main-content { /*правило для блока со слайдами*/
+	width: 1000px;
+	margin: 0 auto; /*содержимое по центру*/
+}
+
+
+/*---------------- ПРАВИЛА ДЛЯ БЛОКОВ ФОНА---------------- */
+
+.main-nav .bg-orange, .main-nav .bg-purple, .main-nav .bg-yellow, 
+.main-nav .bg-green, .main-nav .bg-blue, .btn {
+	-webkit-transition: background-color 0.5s;
+	-moz-transition: background-color 0.5s;
+	-o-transition: background-color 0.5s;
+	transition: background-color 0.5s; /*анимируем кнопку, фон не будет менять резко, а наоборот постепенно*/
+} 
+
+.bg-orange {background-color: #f47858;}
+.main-nav .bg-orange:hover,
+.btn.bg-orange:hover {background-color: #f78365;} /*классы принадл одному элем поэтому никаких пробелов между классами*/
+.bg-purple {background-color: #d576b3;}
+.main-nav .bg-purple:hover {background-color: #d389b9;}
+.bg-yellow {background-color: #f4c957;}
+.main-nav .bg-yellow:hover {background-color: #f2d076;}
+.bg-green {background-color: #add783;}
+.main-nav .bg-green:hover {background-color: #afce90;}
+.bg-blue {background-color: #83d2d6;}
+.main-nav .bg-blue:hover {background-color: #70dfe5;}
+.bg-dark-green {background-color: #99c66a};
+
+
+
+
+
+/*------------------------HEADER--------------------------*/
+
+header {
+	text-align: center; /*во всех дочерних блоках текст по центру*/
+	width: 100%; /*будет занимать всю ширину страницы*/
+}
+
+.main-title {
+	font-size: 48px;
+	line-height: 40px;
+	text-align: center;
+}
+
+.main-title span {
+	font-size: 24px;
+	letter-spacing: 4px; /*межбуквенный интервал*/
+}
+
+/*------------------------MAIN NAVIGATION-----------------------*/
+
+.main-nav {
+	background-color: #cdcdcd;
+	width: 100%;
+}
+
+.main-nav ul {
+	list-style: none; /*убрать точки у списка*/
+	padding-left: 0px; /*равнение по левому краю*/
+	width: 1000px;
+	height: 70px;
+	margin: 0 auto; /*разместить элемент по центру*/
+	text-align: left; /*выравнивание по левому краю*/
+	position: relative;/*сдвигаем все меню слева, чтобы совпадало с нижней рамкой*/
+	left: -4px; /*это позиционирование влево position: relative; */
+}
+
+.main-nav li {
+	border-left: 4px solid #e3e3e3; /*вместо левого отступа, сделали рамку более серую*/
+	float: left; /*положение элементов li по левой стороне*/ 
+	height: 70px;
+	width: 140px; /*ширина между элементами списка*/
+	position: relative; /*это позволит строчным ссылкам не убегать из коробки и давать размеры, 13 видео*/
+}
+
+/*урок 13, как строчной ссылке задать размеры*/
+.main-nav li a {
+	color: #fff;
+	font-size: 18px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box; /*чтобы поля не заходили за края ссылки*/
+	
+	padding-top: 26px; /*поз текста, оступ сверху*/
+	text-align: center; /*центрируем текст*/
+
+	text-decoration: none; /*избавиться от стандартного подчеркивания ссылки*/
+	text-transform: uppercase; /*все буквы закглавные*/
+	
+
+	position: absolute; /*это абсолютное позиционирование находится в рамках position: relative;*/
+	width: 140px;
+	height: 70px;
+}
+
+.main-nav li:last-child {
+	border-right: 4px solid #e3e3e3; /*последней дочке рамку справа*/
+}
+
+/*как добавить точки в главном меню перед ссылками урок 15*/
+.main-nav li a:before {
+	content: " "; /*в html пробелы исчезают*/
+	position: absolute; /*пробел это строкой элемент и уме нельзя задать высоту и ширину*/
+	background-color: #f47858;
+	border: 3px solid #e3e3e3;
+	border-radius: 50px; /*углы полностью обратятся в окружность*/
+	width: 10px;
+	height: 10px;
+	left: -10px;
+	top: 27px;
+}
+
+.main-nav li:last-child a:after { /*обрати внимание как написан ласт посл элем ссылки*/
+	content: " "; /*в html пробелы исчезают*/
+	position: absolute; /*пробел это строкой элемент и уме нельзя задать высоту и ширину*/
+	background-color: #f47858;
+	border: 3px solid #e3e3e3;
+	border-radius: 50px; /*углы полностью обратятся в окружность*/
+	width: 10px;
+	height: 10px;
+	right: -10px;
+	top: 27px;
+}
+
+
+/*-------------------------SLIDER------------------------*/
+
+.feature-slider {
+	background-color: #fff;
+	position: relative; /*отностиельно этой главной коробки будут позиционироваться абсолютно другие элементы*/
+	height: 320px;
+	margin-top: 4px;
+}
+
+.nav-left, .nav-right {
+	position: absolute; /*абсолютное позиционирование внутри родительского (относительно) position: relative;*/
+	width: 53px;
+	height: 53px;
+	top: 131px;
+}
+
+.nav-left {
+	background: url(../img/slider_left.png) top left no-repeat;
+	left: -10px;
+
+}
+
+.nav-right {
+	background: url(../img/slider_right.png) top left no-repeat;
+	right: -10px;
+}
+
+.slider-nav {
+	list-style: none; /*убрать точки у маркированного списка*/
+	padding-left: 0;
+	position: absolute;
+	bottom: 10px;
+	left: 10px;
+	height: 10px;
+	margin: 0;
+}
+
+.slider-nav li {
+	background-color: #cdcdcd;
+	width: 10px;
+	height: 10px;
+	border-radius: 10px; /*для получения окружности, нужно ставить большие значения*/
+	float: left; /*выравниваем список по левому элементу, делаем список горизонтальным*/
+	margin-right: 10px;
+}
+
+/*между ли и актив не должно быть пробела*/
+.slider-nav li.active { background-color: #f47858;}
+
+.slider-nav li a { /*увеличиваем ссылку до размера точек 10х10*/
+	position: absolute;
+	width: 10px;
+	height: 10px;
+}
+
+.slide-image { /*позиционирование картинки "портфолио"*/
+	position: absolute;
+	bottom: 0;
+	right: 90px;
+}
+
+.slide-text {
+	width: 310px;
+	margin: 40px 0 0 90px;
+	float: left; /*появился оступ сверху, блок сдвинулся, поэтому пишем fl*/
+}
+
+.slide-text h2 {
+	color: #f47858;
+	font-family: 'Sintony', Helvetica, Arial sans-serif;
+	margin-bottom: 0; /*убираем браузерный отступ*/
+}
+
+.btn { /*стили для кнопки у меня не сработали, как у автора, наверху, почему-то*/
+	border: none; /*убираем границы рамок, потому что некоторые браузеры по умолч имеют границы*/
+	display: inline-block; /*делаем ссылку блочно-строчной чтобы задачать ширину, длину*/
+	padding: 10px 20px;
+	color: #fff;
+	font-size: 18px;
+	text-decoration: none; /*убираем подчеркивание ссылки*/
+	
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-o-border-radius: 4px;
+	border-radius: 4px; /*скругления рамки*/
+}
+
+
+/*---------------------GREEN COLUMN-----------------*/
+.column-half {
+	width: 50%;
+	height: 345px;
+
+	float: left;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+	position: relative;
+}
+
+.display img {
+	position: absolute;
+	top: 43px;
+	left: 156px;
+}
+
+.camera img {
+	position: absolute;
+	top: 39px;
+	left: 86px;
+}
+
+.column-half h2{
+	font-family: Acme;
+	font-size: 30px;
+	text-align: center;
+	padding-top: 210px;
+	margin-bottom: 0;
+}
+
+.column-half h2 a { /*для h2 не работают свойства, работают только для для "а"*/
+	text-decoration: none; /*убрать нижнее подчеркивание у ссылки*/
+	color: #fff;
+	font-weight: 100; /*жирность*/
+}
+
+.column-half p {
+	color: white;
+	font-family: Sintony;
+	font-size: 14px;
+	font-weight: 400;
+	padding-left: 39px;
+}
+
+.column-half p a {
+	text-decoration: none; /*убрать нижнее подчеркивание у ссылки*/
+	color: #fff;
+	font-weight: 100; /*жирность*/
+}
+
+/*-------------------------FOOTER---------------------*/
+
+footer { /*задаем правила для всей секции*/
+	background-color: #ededed;
+	width: 100%;
+}
+
+.column-one-third {
+	float: left;
+	width: 33.3333%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+	
+	padding: 20px;
+}
+
+
+/*ширина 33.3333333% это все-таки не 100%, поэтому послед колонка меньше других, 
+проблему можно решить таким образом, добавляем флоат справа*/
+.column-one-third:last-child {float: right;}
+
+.blog-list {
+	color: #a3d178;
+	padding-left: 20px;
+}
+
+.blog-list a {
+	color: #78ccd0;
+	font-family: Sintony;
+	font-size: 14px;
+	font-weight: 700;
+	text-decoration: none;
+}
+
+.blog-list a:hover {text-decoration: underline;}
+
+.social-list {
+	list-style: none; /*убираем точки у списка*/
+	padding-left: 0;
+}
+
+.social-list li {
+	float: left;
+	margin-right: 10px;
+}
+
+.column-registration {background-color: #f26c4e;}
+.column-registration h2 {color: #fff;}
+
+/*--------------------ФОРМА*/
+.column-registration input { /*пишем инпут, чтобы выбрать оба поля формы*/
+	border: none; /*убираем форме рамки, которые добавляются автоматически*/
+	padding: 10px;
+	width: 100%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+
+	margin-bottom: 15px; /*пропуски между инпутами формы*/
+}
+
+.column-registration .btn {
+	width: 100%;
+	background-color: #f2c24d;
+	border-radius: 3px;
+	margin-bottom: 33px;
+}
